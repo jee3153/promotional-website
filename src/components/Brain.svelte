@@ -15,6 +15,11 @@
 </script>
 
 {#if $main}
+  <h1
+    transition:scale="{{ delay: 600, opacity: 0, start: 0, duration: 500, easing: quadInOut }}"
+  >
+    I am a software engineer.
+  </h1>
   <div
     class="machine-brain {$main ? 'visible' : 'invisible'}"
     style="background-image:url(/images/partcombined.png); {!$main ? 'width:36vw;' : 'width:46vw;'}"
@@ -57,6 +62,14 @@
 {/if}
 
 <style>
+  h1 {
+    font-size: 3rem;
+    grid-area: header;
+    position: absolute;
+    z-index: 0;
+    text-align: center;
+    line-height: 1;
+  }
   div {
     position: relative;
   }
@@ -142,7 +155,13 @@
     top: -18vh;
     left: -11vh;
   }
+
   @media (min-width: 640px) {
+    h1 {
+      font-size: 6rem;
+      width: 9rem;
+      margin-left: 3rem;
+    }
     .machine-brain {
       transform: scale(1.5);
     }
