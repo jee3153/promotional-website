@@ -59,8 +59,7 @@
     });
   };
   const animationStart = () => {
-    console.log("animation start trigger");
-    randomFloating();
+    // randomFloating();
   };
 
   const skillset = () => {
@@ -162,7 +161,13 @@
   }
   @keyframes floating {
     30% {
-      transform: translateY(3px, 3px);
+      transform: translateY(10px);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(0px);
     }
   }
 
@@ -194,12 +199,6 @@
   }
   .anatomic-face {
     height: 67vh;
-    /*margin-top: 67vh;*/
-    /*position: absolute;
-    top: 14vh;
-    left: 8vw;
-    transition: all 0.2s ease-in-out 1.6s;
-    z-index: 0;*/
   }
   .compass {
     transform-origin: 100% 70.85%;
@@ -216,29 +215,52 @@
     top: 12vh;
     left: 27vw;
     z-index: 7;
-    /* transition: all 0.2s ease-in-out 2s;*/
   }
 
   .logos {
     position: absolute;
     width: 50vw;
     height: 18vh;
-    top: 26vh;
+    top: 32%;
     left: 19%;
     z-index: 7;
     max-width: 400px;
+    animation: floating 3s linear infinite;
   }
-
+  .javascript {
+    left: 100%;
+  }
+  .react {
+    left: 85%;
+  }
+  .python {
+    left: 70%;
+  }
+  .django {
+    left: 55%;
+  }
+  .postgresql {
+    left: 40%;
+  }
+  .html {
+    left: 25%;
+  }
+  .css {
+    left: 12%;
+  }
+  .svelte {
+    left: -2%;
+  }
   .skillset {
     z-index: 7;
     width: 30vw;
     left: 5%;
     top: 55%;
-    /*transition: opacity 0.5s linear;*/
   }
   .skill {
     display: inline-block;
     margin: 0.2rem;
+    font-size: 20px;
   }
   .skill:hover {
     background: #3a3ca1;
@@ -246,18 +268,23 @@
   .nav-container {
     position: absolute;
     width: 41%;
-    bottom: 20%;
+    bottom: 0;
     right: 0;
     z-index: 3;
+    margin-bottom: 1.5rem;
   }
   @media (min-width: 640px) {
     h1 {
       font-size: 2.5rem;
     }
+    .skill {
+      font-size: 25px;
+    }
     .nav-container {
       width: 123px;
       top: 84%;
       right: 13%;
+      margin-bottom: 0;
     }
   }
   @media (min-width: 1000px) {

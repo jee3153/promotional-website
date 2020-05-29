@@ -44,10 +44,10 @@
   @import url("https://use.typekit.net/uuh1zkm.css");
   @keyframes -global-drilling {
     30% {
-      transform: translate(15px, 15px);
+      transform: translate(15px, 2px);
     }
     50% {
-      transform: translate(60px, 20px);
+      transform: translate(30px, 4px);
     }
     100% {
       transform: translate(0);

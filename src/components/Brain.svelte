@@ -18,7 +18,7 @@
   <h1
     transition:scale="{{ delay: 600, opacity: 0, start: 0, duration: 500, easing: quadInOut }}"
   >
-    I am a software engineer.
+    Software engineer
   </h1>
   <div
     class="machine-brain {$main ? 'visible' : 'invisible'}"
@@ -63,7 +63,8 @@
 
 <style>
   h1 {
-    font-size: 3rem;
+    left: 11%;
+    font-size: 2.5rem;
     grid-area: header;
     position: absolute;
     z-index: 0;
@@ -152,15 +153,15 @@
     animation: partsLotation2 10s linear infinite;
   }
   .nav-container {
-    top: -18vh;
+    top: -12vh;
     left: -11vh;
   }
 
   @media (min-width: 640px) {
     h1 {
-      font-size: 6rem;
-      width: 9rem;
-      margin-left: 3rem;
+      font-size: 5rem;
+      width: 100vw;
+      left: 0;
     }
     .machine-brain {
       transform: scale(1.5);
@@ -181,7 +182,7 @@
       left: 6%;
     }
     .nav-container {
-      top: -12vh;
+      top: -86px;
       left: -4vh;
     }
     .hammer-container {

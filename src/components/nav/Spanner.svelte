@@ -33,7 +33,7 @@
 
 <style>
   .spanner {
-    width: 100px;
+    width: 52px;
     transform-origin: 5% 5%;
     animation: spanning 2s linear infinite;
   }

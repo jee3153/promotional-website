@@ -35,8 +35,8 @@
 
 <style>
   .drill {
-    width: 80px;
-    animation: drilling 1s ease-in-out infinite;
+    width: 42px;
+    animation: drilling 3s ease-in-out infinite;
   }
   .home-btn {
     margin-bottom: 1.5rem;

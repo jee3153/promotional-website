@@ -27,7 +27,7 @@
 
 <style>
   .hammer {
-    width: 100px;
+    width: 65px;
     z-index: 1;
     animation: hammering 1s linear infinite;
   }
@@ -35,6 +35,9 @@
   @media (min-width: 640px) {
     .project-btn {
       left: 93%;
+    }
+    .direct-btn {
+      width: 100px;
     }
     /* .project-btn {
       top: -10vh;
