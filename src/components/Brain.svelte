@@ -189,4 +189,9 @@
       left: 0;
     }
   }
+  @media (min-width: 1000px) {
+    .part-3 {
+      left: 5%;
+    }
+  }
 </style>
