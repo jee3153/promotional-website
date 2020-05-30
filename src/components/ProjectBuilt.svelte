@@ -14,7 +14,7 @@
     {
       name: "shopping cart",
       path: "shopping-cart",
-      href: "https://relaxed-lamarr-e993a5.netlify.app/"
+      href: "https://ji90-shopping-cart.netlify.app/"
     },
     {
       name: "tamago game",
