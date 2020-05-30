@@ -30,7 +30,7 @@
 </script>
 
 {#if $projectPage}
-  <section>
+  <section out:fade>
 
     <div class="nav-container">
       <DirectingLinks>
@@ -114,8 +114,9 @@
   section {
     overflow-x: hidden;
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     position: relative;
+    background-color: #fbe0d1;
   }
   .heading {
     display: flex;
@@ -158,7 +159,7 @@
     transition: background-size 0.4s linear;
     filter: grayscale(1);
     width: 100%;
-    height: 100%;
+    height: 20rem;
   }
   .project:active {
     filter: grayscale(0);
@@ -197,6 +198,9 @@
     .trigger {
       width: 70px;
       height: 92px;
+    }
+    .project {
+      height: 30rem;
     }
     .trigger:hover {
       background-size: 120%;
