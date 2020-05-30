@@ -5,7 +5,7 @@
   import { main, menuOpen, skillPage, projectPage } from "../../stores.js";
 
   export let soundPlay;
-
+  let screenSize = window.innerWidth;
   const openProject = async () => {
     main.update(value => false);
     menuOpen.update(value => false);
@@ -14,12 +14,20 @@
     await tick();
     soundPlay("hammering");
   };
+
+  const locationChanger = () => {
+    if (screenSize >= 640) {
+      if ($main) return "top:9%;";
+      else return "top:44%;";
+    }
+  };
 </script>
 
 <div
   class="project-btn"
   on:click="{() => openProject()}"
   transition:fly="{{ opacity: 0, x: 100, duration: 500, easing: sineInOut }}"
+  style="{locationChanger()}"
 >
   <span class="direct-btn text-style">What I built</span>
   <img class="hammer" src="images/hammer.png" alt="hammer" />
@@ -33,18 +41,9 @@
   }
 
   @media (min-width: 640px) {
-    .project-btn {
-      left: 93%;
-    }
     .direct-btn {
       width: 100px;
     }
-    /* .project-btn {
-      top: -10vh;
-    }
-    .project-btn:hover {
-      transform: scale(1.2);
-    } */
   }
   @media (min-width: 1000px) {
     /* .project-btn {

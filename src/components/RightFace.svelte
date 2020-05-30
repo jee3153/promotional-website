@@ -31,9 +31,9 @@
         class="keywords"
         transition:fly="{{ delay: 800, opacity: 0, duration: 300, easint: quadInOut }}"
       >
-        <span class="fixer ">Fixer</span>
-        <span class="builder ">Builder</span>
-        <span class="learner ">Learner</span>
+        <span class="fixer">Fixer</span>
+        <span class="builder">Builder</span>
+        <span class="learner">Learner</span>
       </div>
     {/if}
   {/if}

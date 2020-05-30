@@ -283,13 +283,17 @@
     .nav-container {
       width: 123px;
       top: 84%;
-      right: 13%;
       margin-bottom: 0;
     }
   }
   @media (min-width: 1000px) {
     .logos {
       left: 31%;
+    }
+  }
+  @media (min-width: 1500px) {
+    .logos {
+      left: 35%;
     }
   }
 </style>

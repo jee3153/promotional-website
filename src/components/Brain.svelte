@@ -16,6 +16,7 @@
 
 {#if $main}
   <h1
+    class="highlighter"
     transition:scale="{{ delay: 600, opacity: 0, start: 0, duration: 500, easing: quadInOut }}"
   >
     Software engineer
@@ -63,13 +64,14 @@
 
 <style>
   h1 {
-    left: 11%;
-    font-size: 2.5rem;
+    /* left: 11%; */
+    font-size: 1.6rem;
     grid-area: header;
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     text-align: center;
     line-height: 1;
+    top: -2%;
   }
   div {
     position: relative;
@@ -159,9 +161,8 @@
 
   @media (min-width: 640px) {
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
       width: 100vw;
-      left: 0;
     }
     .machine-brain {
       transform: scale(1.5);
@@ -191,6 +192,10 @@
     }
   }
   @media (min-width: 1000px) {
+    h1 {
+      top: 58%;
+      left: 18%;
+    }
     .part-3 {
       left: 5%;
     }

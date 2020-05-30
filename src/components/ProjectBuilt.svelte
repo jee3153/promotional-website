@@ -9,12 +9,12 @@
 
   export let soundPlay;
 
-  let selected;
+  let selected = "shopping cart";
   const images = [
     {
       name: "shopping cart",
       path: "shopping-cart",
-      href: "https://github.com/jee3153/shoppingcart"
+      href: "https://relaxed-lamarr-e993a5.netlify.app/"
     },
     {
       name: "tamago game",
@@ -30,89 +30,7 @@
 </script>
 
 {#if $projectPage}
-  <section
-    out:fly="{{ delay: 2000, x: -2000, opacity: 0, duration: 800, easing: bounceInOut }}"
-  >
-    <div
-      transition:fly="{{ x: -2000, opacity: 0, duration: 800, easing: bounceInOut }}"
-    >
-      <h1>I have built...</h1>
-      <p class="instruction">More projects are coming!</p>
-    </div>
-
-    <img
-      class="globe"
-      src="images/antique-map.png"
-      alt="globe"
-      transition:fly="{{ y: -2000, opacity: 0, duration: 1500, easing: quadInOut }}"
-    />
-    <img
-      class="compass-face"
-      src="images/compass-face.png"
-      alt="compass-face"
-      transition:fly="{{ delay: 200, x: -2000, opacity: 0, duration: 500, easing: quadInOut }}"
-    />
-    <img
-      class="skull"
-      src="images/skull.png"
-      alt="skull"
-      transition:scale="{{ opacity: 0, start: 0, duration: 300, easing: quadInOut }}"
-    />
-
-    <div
-      class="link-container"
-      transition:slide="{{ delay: 600, opacity: 0, duration: 300, easing: quadInOut }}"
-    >
-
-      {#each images as { name, path }, i}
-        <div
-          class="prj-{i + 1} link"
-          style="background-image:url(images/thumnail-{path}.png);"
-          on:click="{() => (selected = name)}"
-          out:fade="{{ delay: 1500, duration: 3000, easing: quadInOut }}"
-        ></div>
-      {/each}
-
-    </div>
-
-    {#each images as { name, path, href }, i}
-      {#if selected === name}
-        <a
-          {href}
-          out:scale="{{ opacity: 0, start: 0, duration: 200, easing: quadInOut }}"
-        >
-          <img
-            class="bigger-view"
-            src="images/{path}.png"
-            alt="project scaled"
-          />
-          <p class="text-style project-title {path}">{name}</p>
-        </a>
-      {/if}
-    {/each}
-    <div
-      out:scale="{{ opacity: 0, start: 0, duration: 200, easing: quadInOut }}"
-    >
-      {#if selected === 'shopping cart'}
-        <p class="description">
-          Shopping cart app that works perfectly in native and web using web
-          environment development technology. Implementation of calculators of
-          tips of your choice and swiping gestures. Cart item will remain even
-          after browser is refreshed or closed cart item Techonology used:
-          React, Tailwind
-        </p>
-      {:else if selected === 'tamago game'}
-        <p class="description">
-          Pet raising game that is inspired by 90's tamagotchi. Technology used:
-          JavaScript, Phaser.js, Animations
-        </p>
-      {:else if selected === 'what to weather'}
-        <p class="description">
-          Weather SPA (Single Page Application) that gives you an idea of daily
-          outfit based on temperature of the day used technology: react, scss
-        </p>
-      {/if}
-    </div>
+  <section>
 
     <div class="nav-container">
       <DirectingLinks>
@@ -121,151 +39,203 @@
       </DirectingLinks>
     </div>
 
+    <div class="heading">
+      <img class="tools" src="images/smallertoolssm.png" alt="" />
+      <h1>
+        I build things to solve
+        <span class="highlighter">problems</span>
+        and to reflect my
+        <span class="highlighter">interest</span>
+        at the time.
+      </h1>
+    </div>
+
+    <div
+      class="trigger-container"
+      transition:fly="{{ opacity: 0, duration: 100, easing: bounceInOut }}"
+    >
+      {#each images as { name, path }, i}
+        <div
+          class="trigger"
+          style="background-image:url(images/thumnail-{path}.png);"
+          on:click="{() => (selected = name)}"
+        ></div>
+      {/each}
+    </div>
+
+    <div class="container">
+      {#each images as { name, path, href }, i}
+        {#if selected === name}
+          <h1 class="text-style project-title {path}">{name}</h1>
+          <div class="sub-container">
+            <a class="link" {href} target="_blank">
+              <div
+                class="prj-{i + 1} project"
+                style="background-image:url(images/{path}.png);"
+              ></div>
+
+            </a>
+            {#if selected === 'shopping cart'}
+              <p class="description">
+                Shopping cart app that works perfectly in native and web using
+                web environment development technology. Implementation of
+                calculators of tips of your choice and swiping gestures. Cart
+                item will remain even after browser is refreshed or closed cart
+                item Techonology used:
+                <span class="highlighter">React</span>
+                ,
+                <span class="highlighter">Tailwind</span>
+              </p>
+            {:else if selected === 'tamago game'}
+              <p class="description">
+                Pet raising game that is inspired by 90's tamagotchi. Technology
+                used:
+                <span class="highlighter">JavaScript</span>
+                , Phaser.js, Animations
+              </p>
+            {:else if selected === 'what to weather'}
+              <p class="description">
+                Weather SPA (Single Page Application) that gives you an idea of
+                daily outfit based on temperature of the day used technology:
+                <span class="highlighter">react</span>
+                ,
+                <span class="highlighter">scss</span>
+              </p>
+            {/if}
+          </div>
+        {/if}
+      {/each}
+    </div>
+
   </section>
 {/if}
 
 <style>
   section {
+    overflow-x: hidden;
     width: 100vw;
     height: 100vh;
     position: relative;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  .tools {
+    width: 17%;
+  }
+  .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
   }
-  h1 {
-    top: 3%;
-    width: 70vw;
-  }
-  .instruction {
-    top: 12%;
-  }
-  h1,
-  .instruction {
-    color: white;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    text-align: center;
-
-    z-index: 1;
-  }
-
-  .globe {
-    position: absolute;
-    width: 100vw;
-    top: -28%;
-    animation: partsLotation1 12s linear infinite;
-    opacity: 0.5;
-  }
-  .compass-face {
-    position: absolute;
-    width: 30vw;
-    top: 7%;
-    left: 0;
-    animation: partsLotation2 12s linear infinite;
-  }
-  .skull {
-    position: absolute;
-    width: 90vw;
-    top: 18vh;
-    left: 5vw;
-    max-width: 720px;
-  }
-  .link-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
+  .nav-container {
     position: relative;
-    top: -15vh;
-    height: 20vh;
+    padding: 1rem 2rem;
+    width: 94%;
+    height: 113px;
+    margin-bottom: 1rem;
   }
-  .link {
-    cursor: pointer;
-    width: 20vw;
+  .sub-container {
+    width: 100%;
+    height: 44%;
+  }
+  .project-title {
+    padding: 0 1rem;
+  }
+  .project {
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%;
+    background-size: 80%;
+    background-color: black;
     opacity: 1;
     transition: background-size 0.4s linear;
     filter: grayscale(1);
-  }
-  .prj-2-link {
+    width: 100%;
     height: 100%;
   }
-  .project-title {
-    position: absolute;
-    top: 90%;
-    left: 17%;
-  }
-  .whattoweather {
-    top: 85%;
-    left: 13%;
-  }
-  .shopping-cart {
-    top: 90%;
-  }
-  .tamago-game {
-    top: 72%;
-  }
-  .bigger-view {
-    position: absolute;
-    width: 40vw;
-    top: 48vh;
-    left: 10vw;
-    max-width: 310px;
-  }
-  .nav-container {
-    position: absolute;
-    width: 40%;
-    bottom: 5%;
-    right: 0;
-    z-index: 3;
+  .project:active {
+    filter: grayscale(0);
   }
   .description {
-    position: absolute;
-    width: 40vw;
-    right: 4vw;
-    top: 52vh;
-    border: #3a3ca1 solid 1.6px;
-    border-radius: 10px;
-    padding: 1rem;
-    background-color: #f7ddcd;
-    opacity: 0.8;
-    visibility: hidden;
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 1.4rem;
   }
+  .trigger-container {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  .trigger {
+    margin: 0 1rem;
+    width: 30px;
+    height: 40px;
+    background-color: black;
+    background-size: 100%;
+    background-position: center;
+    border-radius: 10%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s linear;
+  }
+
   @media (min-width: 640px) {
-    .link:hover {
+    .container {
+      justify-content: flex-start;
+    }
+    .sub-container {
+      width: 100%;
+      height: 100%;
+      margin-top: 1rem;
+    }
+    .trigger {
+      width: 70px;
+      height: 92px;
+    }
+    .trigger:hover {
       background-size: 120%;
-      opacity: 1;
-      filter: grayscale(0);
     }
     .nav-container {
-      width: 123px;
-      top: 84%;
-      right: 18%;
-    }
-    .bigger-view {
-      width: 34vw;
-      top: 48vh;
-    }
-    .project-title {
-      top: 47%;
-      left: 65%;
-    }
-    .description {
-      visibility: visible;
+      margin-bottom: 5rem;
     }
   }
   @media (min-width: 1000px) {
-    .skull {
-      left: 25%;
-    }
     .nav-container {
-      width: 123px;
-      top: 84%;
-      right: 13%;
+      padding: 2rem;
+    }
+    .container {
+      padding: 1rem 2rem;
+      width: 94%;
+      margin-bottom: 4rem;
+      height: 70%;
+    }
+    .sub-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .description {
+      text-align: left;
+      max-width: 314px;
+    }
+    .project {
+      width: 50vw;
+      height: 42rem;
+      max-width: 433px;
+    }
+    .description {
+      padding: 0 2rem;
+    }
+    .prj-2 {
+      width: 60vw;
+      height: 25rem;
+      max-width: 693px;
     }
   }
 </style>

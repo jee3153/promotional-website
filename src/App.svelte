@@ -118,6 +118,10 @@
   :global(.direct-btn) {
     font-size: 19px;
   }
+  :global(.highlighter) {
+    font-family: montserrat-alternates, sans-serif;
+    font-weight: 200;
+  }
 
   main {
     font-family: adobe-caslon-pro;
